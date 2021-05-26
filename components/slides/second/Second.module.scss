@@ -1,0 +1,38 @@
+.container{
+  display: flex;
+  height: 100vh;
+  .l{
+    width: 50%;
+    height: 100%;
+  }
+  .r{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+  }
+  .content{
+    h2{
+      display: flex;
+      align-items: center;
+      font-size: 50px;
+      height: 120px;
+      padding-right: 100px;
+      margin-bottom: 30px;
+    }
+  }
+  .action{
+    display: flex;
+    margin-bottom: 30px;
+    .btn{
+      padding: 15px 50px;
+      border-radius: 5px;
+      border: 1px solid black;
+      cursor: pointer;
+      &:nth-child(2),&:nth-child(3){
+        margin-left: 5px;
+      }
+    }
+  }
+}
