@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styles from './Second.module.scss'
+import Canvas from "../../canvas/Canvas";
 
 function Second(props) {
 
@@ -10,17 +11,17 @@ function Second(props) {
             case 'blue' :
                 return {__html:`
                             <h2>ICE VICTORY COLD & CLEAN</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, voluptate.</p>
+                            <p>Les framboises sont fraîches, les framboises bleues sont plus fraîches. contient les meilleures framboises bleues pour un rafraîchissement unique !</p>
                         `}
             case 'red' :
                 return {__html:`
                             <h2>FOR POWER GAMING</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, voluptate.</p>
+                            <p>Une édition normale de Bubble Gum était trop ennuyeuse  - dans Bubble Boom, le pouvoir explosif du Popping Candy rencontre le goût classique de Bubble Gum !</p>
                        `}
             case 'green':
                 return {__html:`
                             <h2>FAST VICTORY</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, voluptate.</p>
+                            <p>Le hack le plus savoureux qui soit se fraie un chemin à travers le réseau pour revenir au cœur de la scène du jeu.</p>
                        `}
         }
     }
@@ -28,13 +29,13 @@ function Second(props) {
     return (
         <div className={styles.container+" wrapper"}>
             <div className={styles.l}>
-
+                <Canvas />
             </div>
             <div className={styles.r}>
                 <div className={styles.action}>
-                    <div className={styles.btn} onClick={() => setColor('red')}>Red</div>
-                    <div className={styles.btn} onClick={() => setColor('blue')}>Blue</div>
-                    <div className={styles.btn} onClick={() => setColor('green')}>Green</div>
+                    <div className={styles.btn} onClick={() => setColor('red')} style={{ color:"red"}}>Red</div>
+                    <div className={styles.btn} onClick={() => setColor('blue')} style={{ color:"blue"}}>Blue</div>
+                    <div className={styles.btn} onClick={() => setColor('green')} style={{ color:"green"}}>Green</div>
                 </div>
                 <div className={styles.content} dangerouslySetInnerHTML={colorGetter()}/>
             </div>
