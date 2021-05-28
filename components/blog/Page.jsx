@@ -1,24 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {getBlogs} from "../../actions";
 
-function Page(props) {
+export  async function getStaticProps(){
+    const blogs = await getBlogs()
+    return { props : { blogs } }
+}
 
-    const {blog} = props;
+function Page({blogs}) {
     const test = () =>{
-        console.log(1,blog)
+        console.log(blogs)
     }
     test()
-
     return (
         <>
              <div>
-
+                 {blogs}
              </div>
         </>
     );
 }
-Page.getInitialProps = async () =>{
-    const blog = await getBlogs();
-    return {blog};
-}
+
 export default Page;
