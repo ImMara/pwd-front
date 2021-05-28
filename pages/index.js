@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Base from "../components/layouts/Base";
+import Section from "../components/layouts/section/Section";
 import First from "../components/slides/one/First";
 import Second from "../components/slides/second/Second";
 import Third from "../components/slides/third/Third";
@@ -8,15 +8,15 @@ import Third from "../components/slides/third/Third";
 export default function Home() {
   return (
           <main>
-              <Base>
+              <Section>
                 <First/>
-              </Base>
-              <Base>
+              </Section>
+              <Section>
                   <Second/>
-              </Base>
-              <Base>
+              </Section>
+              <Section>
                   <Third/>
-              </Base>
+              </Section>
           </main>
   )
 }

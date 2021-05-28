@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Base.module.scss';
+import styles from './Section.module.scss';
 
-function Base(props) {
+function Section(props) {
     const {children} = props
     return (
         <div className={styles.container}>
@@ -12,4 +12,4 @@ function Base(props) {
     );
 }
 
-export default Base;
+export default Section;

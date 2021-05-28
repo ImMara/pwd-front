@@ -6,6 +6,6 @@ export const getBlogs = () => {
 
     return axios
         .get(`${BASE_URL}/todos`)
-        .then((res) => console.log(res.data) )
+        .then((res) =>{return res.data})
         .catch((err) => console.error(err))
 }
