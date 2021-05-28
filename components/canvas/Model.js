@@ -2,13 +2,15 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import * as GLTFLoader from "three/examples/jsm/loaders/GLTFLoader";
 import * as DRACOLoader from "three/examples/jsm/loaders/DRACOLoader";
-// import * as MeshSurfaceSampler from "three/examples/jsm/math/MeshSurfaceSampler";
+import * as MeshSurfaceSampler from "three/examples/jsm/math/MeshSurfaceSampler";
 import vertex from './shaders/vertexShader.glsl';
 import fragment from './shaders/fragmentShader.glsl';
+import Canvas from "./Canvas";
 
 
-class Model {
+class Model extends Canvas{
     constructor(obj){
+        super();
         // console.log(obj)
         this.name = obj.name
         this.file = obj.file
