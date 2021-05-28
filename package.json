@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@asyncapi/web-component": "^0.24.0",
     "@zeit/next-sass": "^1.0.1",
     "gsap": "^3.6.1",
     "next": "10.2.3",
@@ -16,5 +17,8 @@
     "sass": "^1.34.0",
     "three": "^0.128.0",
     "three-loaders": "^1.0.9"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0"
   }
 }
