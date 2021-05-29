@@ -2,16 +2,43 @@ import React, {useEffect, useState} from 'react';
 import Cards from "../cards/Cards";
 import Header from "../layouts/header/Header";
 import styles from "./Page.module.scss";
+import Pagination from "../Pagination/Pagination";
 
 function Page({blogs}) {
+
+    const [currentPage, setCurrentPage] = useState(1)
+    const itemsPerPage = 6
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page)
+    }
+
+    const paginatedBlog = Pagination.getData(blogs, currentPage, itemsPerPage)
 
     return (
         <div style={{backgroundColor: 'silver'}}>
             <Header screen={true} color={"red"} height={"400px"}/>
+
             <div className={styles.blog_container + " wrapper"}>
-                {blogs.map(b => (
-                    <Cards blogs={b}/>
+                { itemsPerPage < blogs.length &&
+                    <Pagination
+                        currentPage={currentPage}
+                        itemsPerPage={itemsPerPage}
+                        length={blogs.length}
+                        onPageChanged={handlePageChange}
+                    />
+                }
+                {paginatedBlog.map(b => (
+                    <Cards blogs={b} key={b.id}/>
                 ))}
+                { itemsPerPage < blogs.length &&
+                <Pagination
+                    currentPage={currentPage}
+                    itemsPerPage={itemsPerPage}
+                    length={blogs.length}
+                    onPageChanged={handlePageChange}
+                />
+                }
             </div>
         </div>
     );
