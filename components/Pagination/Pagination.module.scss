@@ -7,6 +7,9 @@
   border-radius: 5px;
   li{
     list-style: none;
+    &.disabled{
+      display: none;
+    }
     .btn{
       display: flex;
       cursor: pointer;
