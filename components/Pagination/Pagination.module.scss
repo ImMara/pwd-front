@@ -7,9 +7,7 @@
   border-radius: 5px;
   li{
     list-style: none;
-    &.disabled{
-      display: none;
-    }
+
     .btn{
       display: flex;
       cursor: pointer;
@@ -21,8 +19,17 @@
       transition: background-color 0.1s linear;
       &:hover{
         background-color: blue;
+        box-shadow: rgba(100, 100, 111, 0.2) 0 17px 39px 0;
         color: white;
       }
     }
   }
+}
+.disabled{
+  display: none;
+}
+.active{
+  background-color: blue;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 17px 39px 0;
+  color: white;
 }
