@@ -14,15 +14,15 @@ function Pagination(props) {
     return (
         <>
             <ul className={styles.pagination_container}>
-                <li className={(props.currentPage === 1 && styles.disabled )}>
+                <li className={(props.currentPage === 1 ? styles.disabled : undefined )}>
                     <div className={styles.btn} onClick={()=>props.onPageChanged(props.currentPage - 1)} >&laquo;</div>
                 </li>
                     {pages.map(page => (
-                        <li key={page} className={( props.currentPage === page && styles.active ) }>
+                        <li key={page} className={( props.currentPage === page ? styles.active : undefined ) }>
                             <div className={styles.btn} onClick={() => props.onPageChanged(page)}>{page}</div>
                         </li>
                     ))}
-                <li className={(props.currentPage === pagesCount && styles.disabled )}>
+                <li className={(props.currentPage === pagesCount ? styles.disabled : undefined )}>
                     <div className={styles.btn} onClick={()=>props.onPageChanged(props.currentPage + 1)} >&raquo;</div>
                 </li>
             </ul>

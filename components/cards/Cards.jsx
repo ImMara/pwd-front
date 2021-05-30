@@ -5,7 +5,7 @@ function Cards({blogs}) {
 
     return (
         <article>
-            <a>
+            <a href={"/blog/"+blogs.id} style={{textDecoration:"none" , color:"black"}}>
                 <div className={styles.cards}>
                     <div className={styles.card_image}>
                         <img src="/images/game.png" alt="logo"/>

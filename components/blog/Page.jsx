@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import Cards from "../cards/Cards";
-import Header from "../layouts/header/Header";
 import styles from "./Page.module.scss";
 import Pagination from "../Pagination/Pagination";
 
@@ -16,9 +15,7 @@ function Page({blogs}) {
     const paginatedBlog = Pagination.getData(blogs, currentPage, itemsPerPage)
 
     return (
-        <div style={{backgroundColor: 'silver'}}>
-            <Header screen={true} color={"red"} height={"400px"}/>
-
+        <>
             <div className={styles.blog_container + " wrapper"}>
                 { itemsPerPage < blogs.length &&
                     <Pagination
@@ -40,7 +37,7 @@ function Page({blogs}) {
                 />
                 }
             </div>
-        </div>
+        </>
     );
 }
 
