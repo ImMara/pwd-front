@@ -1,9 +1,13 @@
 import '@/styles/index.scss'
+import Navbar from "../components/navbar/Navbar";
 
 
 function MyApp({ Component, pageProps }) {
   return (
-      <Component {...pageProps} />
+      <>
+          <Navbar/>
+          <Component {...pageProps} />
+      </>
   )
 }
 
