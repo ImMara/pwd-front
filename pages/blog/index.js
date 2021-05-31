@@ -2,12 +2,10 @@ import React from 'react';
 import Page from "../../components/blog/Page";
 import {getBlogs} from "../../actions";
 import Header from "../../components/layouts/header/Header";
-import Navbar from "../../components/navbar/Navbar";
 
 export async function getServerSideProps(){
     const blogs = await getBlogs()
     return { props : { blogs }}
-
 }
 
 function Index(props) {
