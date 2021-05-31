@@ -5,13 +5,15 @@ function Post(props) {
     return (
         <div className={"wrapper "}>
             <div className={styles._container}>
-                <img src="/images/game.png" style={{width:'100%',height:'200px',objectFit:'cover'}} alt=""/>
+                <img src="/images/game.png" alt=""/>
                 <h1>{props.post.title}</h1>
                 <p>
-                    {props.post.body}
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aspernatur delectus dolores doloribus eligendi enim est exercitationem explicabo, facere fugiat ipsam ipsum iste labore magnam molestias nisi nobis non obcaecati officiis omnis qui repellendus sequi sit tempore temporibus totam voluptatibus. A dolores maiores molestias provident quam qui reprehenderit vero?
                 </p>
-                <a href="/blog/"><button>retour</button></a>
-                <a href="/"><button>Home</button></a>
+                <div className={styles.action}>
+                    <a href="/blog/"><div className={styles.btn}>retour</div></a>
+                    <a href="/"><div className={styles.btn}>Home</div></a>
+                </div>
             </div>
         </div>
     );

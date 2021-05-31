@@ -9,4 +9,39 @@
   top: 380px;
   left: 50%;
   background-color: white;
+  img{
+    width: 100%;
+    height:200px;
+    object-fit: cover;
+  }
+  h1{
+    margin: 35px 0;
+  }
+  p{
+    margin: 35px 0;
+  }
+  .action{
+    display: flex;
+    a{
+      text-decoration: none;
+    }
+    .btn{
+      padding: 15px 50px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid black;
+      background-color: black;
+      color: white;
+      transition: all 0.5s ease;
+      &:hover{
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+      }
+      &:first-child{
+        margin-right:  25px;
+      }
+    }
+  }
+
 }
