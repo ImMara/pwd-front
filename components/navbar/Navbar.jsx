@@ -4,7 +4,8 @@ import styles from './Navbar.module.scss';
 function Navbar(props) {
     return (
         <nav className={styles.nav}>
-            <ul>
+            <ul className={"wrapper"}>
+                <li>ENERGY DRINK</li>
                 <li><a href="/">Home</a></li>
                 <li><a href="/blog">Blog</a></li>
                 <li><a href="/event">Events</a></li>

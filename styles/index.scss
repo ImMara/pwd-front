@@ -1,13 +1,41 @@
+@font-face {
+  font-family: "nunito-sans";
+  src: url("/fonts/nunitosans/NunitoSans-Regular.ttf");
+}
+@font-face {
+  font-family: "nunito-sans";
+  src: url("/fonts/nunitosans/NunitoSans-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "poppins";
+  src: url("/fonts/poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "poppins";
+  src: url("/fonts/poppins/Poppins-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "poppins";
+  src: url("/fonts/poppins/Poppins-Bold.ttf");
+  font-weight: bold;
+}
 * {
   padding: 0;
   margin: 0;
+  font-family: nunito-sans, serif;
   box-sizing: border-box;
+}
+h1,h2,h3,h4,h5,h6{
+  line-height: 91%;
+  font-family: poppins,  serif;
+  font-weight: bold;
 }
 body, html {
   width: 100%;
   height: 100vh;
   background-color: #f1f1f3;
-  font-family: 'Roboto', sans-serif;
 }
 .wrapper{
   position: relative;
