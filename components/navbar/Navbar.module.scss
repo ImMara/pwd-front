@@ -13,10 +13,11 @@
     justify-content: flex-end;
     li{
       font-weight: 600;
-      font-size: 24px;
+      font-size: 18px;
       margin:10px;
       list-style: none;
       &:first-child{
+        font-size: 25px;
         margin-right: auto;
         font-family: poppins, serif;
       }

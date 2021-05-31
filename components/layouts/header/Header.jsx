@@ -7,7 +7,7 @@ function Header(props) {
 
     return (
         <header style={{backgroundColor:props.color,height:props.height}} className={styles.container}>
-            {!props.screen ? children : (
+            {props.screen ? children : (
                 <div className='wrapper'>
                     {children}
                 </div>

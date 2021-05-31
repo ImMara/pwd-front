@@ -16,7 +16,7 @@ function Index({post}) {
 
     return (
         <>
-            <Header height={"400px"} color={"black"}>
+            <Header height={"400px"} screen={true} color={"black"}>
                 <div style={{
                     position:'absolute',
                     width:'100%',
