@@ -11,7 +11,7 @@ export async function getServerSideProps(){
 function Index(props) {
     return (
         <>
-            <Header screen={true} color={"black"} height={"400px"}>
+            <Header screen={false} color={"black"} height={"400px"}>
                 <div style={{
                     position:'absolute',
                     width:'100%',
@@ -19,7 +19,7 @@ function Index(props) {
                     top:0,
                     left:0,
                     background: 'linear-gradient(to top, rgba(241,241,243,1) 0%, rgba(0,0,0,0) 100%)'}}/>
-                <img src="/images/header.jpg" style={{ width:'100%', objectFit:'cover',}} alt=""/>
+                <img src="/images/header.jpg" style={{height:'100%', width:'100%', objectFit:'cover',}} alt=""/>
             </Header>
             <Page blogs={props.blogs}/>
         </>

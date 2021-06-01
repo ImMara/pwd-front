@@ -8,7 +8,7 @@ function Post(props) {
                 <img src="/images/game.png" alt=""/>
                 <h1>{props.post.title}</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aspernatur delectus dolores doloribus eligendi enim est exercitationem explicabo, facere fugiat ipsam ipsum iste labore magnam molestias nisi nobis non obcaecati officiis omnis qui repellendus sequi sit tempore temporibus totam voluptatibus. A dolores maiores molestias provident quam qui reprehenderit vero?
+                    {props.post.content}
                 </p>
                 <div className={styles.action}>
                     <a href="/blog/"><div className={styles.btn}>retour</div></a>
