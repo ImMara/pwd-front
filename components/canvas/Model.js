@@ -1,7 +1,7 @@
 import * as THREE from 'three-full';
 import gsap from 'gsap';
-import vertex from './shaders/vertexShader.glsl';
-import fragment from './shaders/fragmentShader.glsl';
+import {vertex} from './shaders/vertexShader';
+import {fragment} from './shaders/fragmentShader';
 import {MeshSurfaceSampler, Triangle} from "three-full";
 import {GLTFLoader} from 'three-full';
 import {DRACOLoader} from "three-full";
@@ -72,14 +72,13 @@ class Model {
                     uTime:{ value:0 },
                     uScale:{value : 0}
                 },
-                vertexShader:vertex,
-                fragmentShader:fragment,
+                vertexShader:vertex(),
+                fragmentShader:fragment(),
                 transparent:true,
                 depthTest:false,
                 depthWrite:false,
                 blending: THREE.AdditiveBlending
             })
-            console.log(vertex)
 
             /*------------------------------
             Particles Geometry
@@ -95,7 +94,7 @@ class Model {
 
                 const newPosition = new THREE.Vector3();
 
-                sampler.sample(newPosition , newPosition, newPosition )
+                sampler.sample(newPosition)
 
                 particlesPosition.set([
                     newPosition.x, // 0

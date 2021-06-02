@@ -11,7 +11,7 @@ export async function getServerSideProps(){
 function Index(props) {
     return (
         <>
-            <Header screen={false} color={"black"} height={"400px"}>
+            <Header screen={true} color={"black"} height={"400px"}>
                 <div style={{
                     position:'absolute',
                     width:'100%',

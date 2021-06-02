@@ -32,8 +32,8 @@ function Canvas(props) {
             0.1,
             100
         );
-        camera.position.z = 10;
-        camera.position.y = 5;
+        camera.position.z =5;
+        camera.position.y = 1;
 
         /*------------------------------
         Mesh
@@ -50,17 +50,17 @@ function Canvas(props) {
         OrbitControls
         ------------------------------*/
         const controls = new OrbitControls( camera, renderer.domElement );
-        controls.enabled = true;
-        // controls.enabled = false;
+        // controls.enabled = true;
+        controls.enabled = false;
 
         /*------------------------------
         Helpers
         ------------------------------*/
 
-        const gridHelper = new THREE.GridHelper( 10, 10 );
-        scene.add( gridHelper );
-        const axesHelper = new THREE.AxesHelper( 5 );
-        scene.add( axesHelper );
+        // const gridHelper = new THREE.GridHelper( 10, 10 );
+        // scene.add( gridHelper );
+        // const axesHelper = new THREE.AxesHelper( 5 );
+        // scene.add( axesHelper );
 
         /*------------------------------
         Models
@@ -70,8 +70,8 @@ function Canvas(props) {
             name:'skull',
             file:'/models/skull.glb',
             scene: scene,
-            color1:'red',
-            color2:'yellow',
+            color1:'black',
+            color2:'blue',
             background:'#47001b',
             placeOnLoad: true,
         })
@@ -89,6 +89,13 @@ function Canvas(props) {
         const animate = function () {
             requestAnimationFrame( animate );
             renderer.render( scene, camera );
+
+            if(Skull.isActive){
+                Skull.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
+            }
+            // if(Horse.isActive){
+            //     Horse.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
+            // }
         };
         animate();
 
