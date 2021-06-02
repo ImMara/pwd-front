@@ -91,7 +91,7 @@ class Model {
 
                 const newPosition = new THREE.Vector3();
 
-                sampler.sample(newPosition , targetNormal )
+                sampler.sample(newPosition , newPosition, newPosition )
 
                 particlesPosition.set([
                     newPosition.x, // 0
