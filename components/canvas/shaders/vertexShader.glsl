@@ -1,5 +1,3 @@
- attribute vec3 position;
-
 attribute vec3 aRandom;
 
 varying vec3 vPosition;
@@ -9,7 +7,7 @@ uniform float uTime;
 uniform float uScale;
 
 void main() {
-    vPosition= position;
+    vPosition = position;
 
     float time = uTime * 4.;
 
@@ -26,5 +24,5 @@ void main() {
 
     vec4 mvPosition = modelViewMatrix * vec4( pos, 1.0 );
     gl_Position = projectionMatrix * mvPosition;
-    gl_PointSize = 8.0 / -mvPosition.z;
+    gl_PointSize = ( 8.0 / -mvPosition.z );
 }

@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from 'react';
-import * as THREE from 'three';
+import * as THREE from 'three-full';
+import {OrbitControls} from 'three-full';
 import gsap from 'gsap';
 import Model from "./Model";
 
@@ -46,6 +47,13 @@ function Canvas(props) {
         // scene.add( cube );
 
         /*------------------------------
+        OrbitControls
+        ------------------------------*/
+        const controls = new OrbitControls( camera, renderer.domElement );
+        controls.enabled = true;
+        // controls.enabled = false;
+
+        /*------------------------------
         Helpers
         ------------------------------*/
 
@@ -79,12 +87,8 @@ function Canvas(props) {
         ------------------------------*/
 
         const animate = function () {
-            // requestAnimationFrame( animate );
+            requestAnimationFrame( animate );
             renderer.render( scene, camera );
-
-            if(Skull.isActive){
-                Skull.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
-            }
         };
         animate();
 
@@ -116,7 +120,7 @@ function Canvas(props) {
         },[id])
 
     return (
-        <div ref={id} style={{backgroundColor : 'black'}}/>
+        <div ref={id} />
     );
 }
 
