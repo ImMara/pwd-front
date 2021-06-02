@@ -1,9 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import * as THREE from 'three';
 import gsap from 'gsap';
-import vertex from "./shaders/vertexShader.glsl";
-import fragment from "./shaders/fragmentShader.glsl";
-// import Model from './Model';
+import Model from "./Model";
 
 function Canvas(props) {
 
@@ -34,7 +32,7 @@ function Canvas(props) {
             100
         );
         camera.position.z = 10;
-        camera.position.y = -0.08;
+        camera.position.y = 5;
 
         /*------------------------------
         Mesh
@@ -45,7 +43,7 @@ function Canvas(props) {
         color: 0x00ff00,
         } );
         const cube = new THREE.Mesh( geometry, material );
-        scene.add( cube );
+        // scene.add( cube );
 
         /*------------------------------
         Helpers
@@ -60,23 +58,33 @@ function Canvas(props) {
         Models
         ------------------------------*/
 
-        // const Skull = new Model({
-        //     name:'skull',
-        //     file:'./models/skull.glb',
-        //     scene: scene,
-        //     color1:'red',
-        //     color2:'yellow',
-        //     background:'#47001b',
-        //     placeOnLoad: true,
-        // })
+        const Skull = new Model({
+            name:'skull',
+            file:'/models/skull.glb',
+            scene: scene,
+            color1:'red',
+            color2:'yellow',
+            background:'#47001b',
+            placeOnLoad: true,
+        })
+
+        /*------------------------------
+        Clock
+        ------------------------------*/
+
+        const clock = new THREE.Clock()
 
         /*------------------------------
         Loop
         ------------------------------*/
 
         const animate = function () {
-            requestAnimationFrame( animate );
+            // requestAnimationFrame( animate );
             renderer.render( scene, camera );
+
+            if(Skull.isActive){
+                Skull.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
+            }
         };
         animate();
 
@@ -108,7 +116,7 @@ function Canvas(props) {
         },[id])
 
     return (
-        <div ref={id}/>
+        <div ref={id} style={{backgroundColor : 'black'}}/>
     );
 }
 

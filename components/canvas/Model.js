@@ -1,16 +1,14 @@
-import * as THREE from 'three';
+import * as THREE from 'three-full';
 import gsap from 'gsap';
-import * as GLTFLoader from "three/examples/jsm/loaders/GLTFLoader";
-import * as DRACOLoader from "three/examples/jsm/loaders/DRACOLoader";
-import * as MeshSurfaceSampler from "three/examples/jsm/math/MeshSurfaceSampler";
 import vertex from './shaders/vertexShader.glsl';
 import fragment from './shaders/fragmentShader.glsl';
-import Canvas from "./Canvas";
+import {MeshSurfaceSampler, Triangle} from "three-full";
+import {GLTFLoader} from 'three-full';
+import {DRACOLoader} from "three-full";
 
 
-class Model extends Canvas{
+class Model {
     constructor(obj){
-        super();
         // console.log(obj)
         this.name = obj.name
         this.file = obj.file
@@ -23,6 +21,7 @@ class Model extends Canvas{
         this.color2 = obj.color2
         this.background = obj.background
 
+
         this.loader = new GLTFLoader();
         this.dracoLoader = new DRACOLoader();
         this.dracoLoader.setDecoderPath('./draco/')
@@ -30,7 +29,7 @@ class Model extends Canvas{
         this.init()
     }
 
-    init (){
+    init(targetPosition, targetNormal){
         this.loader.load(this.file,(response)=>{
 
             /*------------------------------
@@ -89,12 +88,15 @@ class Model extends Canvas{
             const particlesRandomness = new Float32Array(numParticles*3)
 
             for (let i = 0; i< numParticles;i++){
+
                 const newPosition = new THREE.Vector3();
-                sampler.sample(newPosition)
+
+                sampler.sample(newPosition , targetNormal )
+
                 particlesPosition.set([
                     newPosition.x, // 0
                     newPosition.y, // 1
-                    newPosition.z // 2
+                    newPosition.z, // 2
                 ], i*3 )
 
                 particlesRandomness.set([
@@ -109,7 +111,7 @@ class Model extends Canvas{
             this.particlesGeometry.setAttribute('aRandom',new
             THREE.BufferAttribute(particlesRandomness,3))
 
-            console.log(this.particlesGeometry)
+            console.log(2,this.particlesGeometry)
 
             /*------------------------------
             Particles
