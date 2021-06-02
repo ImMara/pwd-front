@@ -37,7 +37,7 @@ function Canvas(props) {
             100
         );
         camera.position.z =5;
-        camera.position.y = 1;
+        camera.position.y = 5;
 
         /*------------------------------
         Mesh
@@ -70,9 +70,9 @@ function Canvas(props) {
         Models
         ------------------------------*/
 
-        const Skull = new Model({
-            name:'skull',
-            file:'/models/skull.glb',
+        const Cans = new Model({
+            name:'cans',
+            file:'/models/cans.glb',
             scene: scene,
             color1:color,
             color2:color,
@@ -93,8 +93,8 @@ function Canvas(props) {
             requestAnimationFrame( animate );
             renderer.render( scene, camera );
 
-            if(Skull.isActive){
-               Skull.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
+            if(Cans.isActive){
+               Cans.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
             }
         };
         animate();
