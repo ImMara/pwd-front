@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styles from './Second.module.scss'
 import Canvas from "../../canvas/Canvas";
+import Model from "../../canvas/Model";
 
 function Second(props) {
 
@@ -26,15 +27,16 @@ function Second(props) {
         }
     }
 
+
     return (
         <div className={styles.container+" wrapper"}>
             <div className={styles.l}>
-                <Canvas />
+                <Canvas color={color}/>
             </div>
             <div className={styles.r}>
                 <div className={styles.action}>
-                    <div className={styles.btn} onClick={() => setColor('red')} style={{ color:"red"}}>Red</div>
-                    <div className={styles.btn} onClick={() => setColor('blue')} style={{ color:"blue"}}>Blue</div>
+                    <div className={styles.btn} onClick={() => {setColor('red')}} style={{ color:"red"}}>Red</div>
+                    <div className={styles.btn} onClick={() => {setColor('blue')}} style={{ color:"blue"}}>Blue</div>
                     <div className={styles.btn} onClick={() => setColor('green')} style={{ color:"green"}}>Green</div>
                 </div>
                 <div className={styles.content} dangerouslySetInnerHTML={colorGetter()}/>

@@ -19,8 +19,6 @@ class Model {
 
         this.color1 = obj.color1
         this.color2 = obj.color2
-        this.background = obj.background
-
 
         this.loader = new GLTFLoader();
         this.dracoLoader = new DRACOLoader();
@@ -89,12 +87,13 @@ class Model {
             this.particlesGeometry = new THREE.BufferGeometry()
             const particlesPosition = new Float32Array(numParticles *3)
             const particlesRandomness = new Float32Array(numParticles*3)
+            const normalVec = new THREE.Vector3();
 
             for (let i = 0; i< numParticles;i++){
 
                 const newPosition = new THREE.Vector3();
 
-                sampler.sample(newPosition)
+                sampler.sample(newPosition,normalVec)
 
                 particlesPosition.set([
                     newPosition.x, // 0
@@ -109,12 +108,10 @@ class Model {
                 ],i*3)
             }
 
-            this.particlesGeometry.setAttribute('position', new
-            THREE.BufferAttribute(particlesPosition,3))
-            this.particlesGeometry.setAttribute('aRandom',new
-            THREE.BufferAttribute(particlesRandomness,3))
+            this.particlesGeometry.setAttribute('position', new THREE.BufferAttribute(particlesPosition,3))
+            this.particlesGeometry.setAttribute('aRandom',new THREE.BufferAttribute(particlesRandomness,3))
 
-            console.log(2,this.particlesGeometry)
+            // console.log(2,this.particlesGeometry)
 
             /*------------------------------
             Particles
@@ -149,10 +146,6 @@ class Model {
                 ease:'power3.out',
             })
         }
-        gsap.to('body',{
-            background:this.background,
-            duration:.8
-        })
         this.isActive = true
     }
     remove(){

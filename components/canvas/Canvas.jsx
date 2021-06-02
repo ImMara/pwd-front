@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import * as THREE from 'three-full';
 import {OrbitControls} from 'three-full';
 import gsap from 'gsap';
@@ -7,8 +7,12 @@ import Model from "./Model";
 function Canvas(props) {
 
     const id = useRef(null)
+    const [color,setColor] = useState(props.color)
+
 
     useEffect(() =>{
+
+        console.log(color)
 
         /*------------------------------
         Renderer
@@ -70,9 +74,8 @@ function Canvas(props) {
             name:'skull',
             file:'/models/skull.glb',
             scene: scene,
-            color1:'black',
-            color2:'blue',
-            background:'#47001b',
+            color1:color,
+            color2:color,
             placeOnLoad: true,
         })
 
@@ -91,11 +94,8 @@ function Canvas(props) {
             renderer.render( scene, camera );
 
             if(Skull.isActive){
-                Skull.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
+               Skull.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
             }
-            // if(Horse.isActive){
-            //     Horse.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
-            // }
         };
         animate();
 
@@ -124,10 +124,12 @@ function Canvas(props) {
             })
         }
         window.addEventListener('mousemove',onMouseMove)
-        },[id])
+        },[id,color])
 
     return (
-        <div ref={id} />
+        <>
+            <div ref={id} />
+        </>
     );
 }
 
