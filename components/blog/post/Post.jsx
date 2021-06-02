@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './Post.module.scss';
 
-function Post(props) {
+function Post({post}) {
     return (
         <div className={"wrapper "}>
             <div className={styles._container}>
-                <img src="/images/game.png" alt=""/>
-                <h1>{props.post.title}</h1>
+                <img src={`http://api.energydrink.eraertsalan.be/images/blogs/resized/${post.image}`} alt=""/>
+                <h1>{post.title}</h1>
                 <p>
-                    {props.post.content}
+                    {post.content}
                 </p>
                 <div className={styles.action}>
                     <a href="/blog/"><div className={styles.btn}>retour</div></a>

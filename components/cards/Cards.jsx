@@ -8,7 +8,7 @@ function Cards({blogs}) {
             <a href={"/blog/"+blogs._id} style={{textDecoration:"none" , color:"black"}}>
                 <div className={styles.cards}>
                     <div className={styles.card_image}>
-                        <img src="/images/game.png" alt="logo"/>
+                        <img src={`http://api.energydrink.eraertsalan.be/images/blogs/resized/${blogs.image}`}  alt="logo"/>
                     </div>
                     <div className={styles.card_content}>
                         <h4>{blogs.title}</h4>
