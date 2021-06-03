@@ -15,3 +15,17 @@ export const getPost = (id) =>{
         .then((res) => {return res.data.blog})
         .catch((err) => console.error(err))
 }
+
+export const getEvents = () => {
+    return axios
+        .get(`${BASE_URL}/events`)
+        .then((res)=>{return res.data.events})
+        .catch((err) => console.error(err))
+}
+
+export const getEvent = (id) => {
+    return axios
+        .get(`${BASE_URL}/event/${id}`)
+        .then((res) => {return res.data.event})
+        .catch(err => console.error(err))
+}
