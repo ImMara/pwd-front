@@ -22,7 +22,7 @@ function Canvas(props) {
             antialias: true,
             alpha: true,
         })
-        renderer.setSize( (id.current.clientWidth), window.innerHeight)
+        renderer.setSize( (id.current.clientWidth), id.current.clientHeight)
         id.current.appendChild(renderer.domElement);
 
         /*------------------------------
@@ -32,7 +32,7 @@ function Canvas(props) {
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(
             50,
-            id.current.clientWidth / window.innerHeight,
+            id.current.clientWidth / id.current.clientHeight,
             0.1,
             100
         );
@@ -104,9 +104,9 @@ function Canvas(props) {
         ------------------------------*/
 
         function onWindowResize() {
-            camera.aspect = id.current.clientWidth / window.innerHeight;
+            camera.aspect = id.current.clientWidth / id.current.clientHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize( id.current.clientWidth, window.innerHeight );
+            renderer.setSize( id.current.clientWidth, id.current.clientHeight );
         }
         window.addEventListener( 'resize', onWindowResize, false )
 
@@ -119,16 +119,17 @@ function Canvas(props) {
             const y = e.clientY
 
             gsap.to(scene.rotation,{
-                y:gsap.utils.mapRange(0,window.innerWidth,.2,-.2, x),
-                x:gsap.utils.mapRange(0,window.innerHeight,.2,-.2, y)
+                y:gsap.utils.mapRange(0,id.current.clientWidth,.2,-.2, x),
+                x:gsap.utils.mapRange(0,id.current.clientHeight,.2,-.2, y)
             })
         }
+        console.log(id.current)
         window.addEventListener('mousemove',onMouseMove)
         },[id,color])
 
     return (
         <>
-            <div ref={id} />
+            <div ref={id} style={{ height:'100%' }}/>
         </>
     );
 }

@@ -22,7 +22,7 @@ function Second(props) {
             case 'green':
                 return {__html:`
                             <h2>FAST VICTORY</h2>
-                            <p>Le hack le plus savoureux qui soit se fraie un chemin à travers le réseau pour revenir au cœur de la scène du jeu.</p>
+                            <p style="padding: 5px">Le hack le plus savoureux qui soit se fraie un chemin à travers le réseau pour revenir au cœur de la scène du jeu.</p>
                        `}
         }
     }

@@ -10,16 +10,26 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    @media (min-width: 376px){
+      justify-content: flex-end;
+    }
     li{
       font-weight: 600;
       font-size: 18px;
       margin:10px;
       list-style: none;
       &:first-child{
-        font-size: 25px;
+        display: none;
         margin-right: auto;
         font-family: poppins, serif;
+        @media (min-width: 376px){
+          display: block;
+          font-size: 18px;
+        }
+        @media (min-width: 470px){
+          font-size: 25px;
+        }
       }
       a{
         color: white;

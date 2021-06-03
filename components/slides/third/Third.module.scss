@@ -5,34 +5,65 @@
   .content{
     display: flex;
     height: 100%;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (min-width: 990px){
+      flex-direction: row;
+    }
     img{
-      width: 420px;
-      height: 320px;
+      width: 100%;
+      height: 50%;
+      padding: 25px;
+      object-fit: cover;
+      @media (min-width: 990px){
+        flex-direction: row;
+        width: 420px;
+        height: 320px;
+      }
     }
     .c{
       position: relative;
-      margin-top: 110px;
-      width: 50%;
-      padding: 25px;
+      min-height: 50%;
+      display: flex;
+      padding: 50px 25px;
+      flex-direction: column;
+      justify-content: center;
+      @media (min-width: 990px){
+        width: 50%;
+        padding: 25px;
+      }
       h2{
-        position: absolute;
-        font-size: 50px;
+        font-size: 30px;
         font-weight: bold;
-        top: -60px;
-        left: -181px;
+        @media (min-width: 393px){
+          font-size: 50px;
+        }
+        @media (min-width: 990px){
+          position: relative;
+          width: 150%;
+          top: 5px;
+          left: -240px;
+        }
       }
       p{
-        margin-top: 35px;
-        height: 72px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        @media (min-width: 990px){
+          margin-top: 35px;
+          margin-bottom: 0;
+          height: 72px;
+        }
       }
       .action{
-        margin-top: 50px;
+        @media (min-width: 990px){
+          margin-top: 50px;
+        }
         .btn{
           font-weight: 600;
           cursor: pointer;
           width: 170px;
+          margin-top: 5px;
           display: flex;
           justify-content: center;
           align-items: center;
