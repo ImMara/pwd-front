@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Cards from "../cards/Cards";
 import styles from "./Page.module.scss";
-import Pagination from "../Pagination/Pagination";
+import Pagination from "../pagination/Pagination";
 
 function Page({blogs}) {
 
