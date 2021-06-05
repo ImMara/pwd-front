@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from "../../components/layouts/header/Header";
 
 function Index(props) {
     return (
         <div>
-            <h1>contact</h1>
+            <Header>contact</Header>
         </div>
     );
 }

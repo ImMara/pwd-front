@@ -3,7 +3,7 @@ import Cards from "../cards/Cards";
 import styles from "./Page.module.scss";
 import Pagination from "../pagination/Pagination";
 
-function Page({blogs}) {
+function Blog({blogs}) {
 
     const [currentPage, setCurrentPage] = useState(1)
     const itemsPerPage = 6
@@ -41,4 +41,4 @@ function Page({blogs}) {
     );
 }
 
-export default Page;
+export default Blog;

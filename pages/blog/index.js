@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from "../../components/blog/Page";
+import Blog from "../../components/blog/Blog";
 import {getBlogs} from "../../actions";
 import Header from "../../components/layouts/header/Header";
 
@@ -23,7 +23,7 @@ function Index(props) {
                 />
                 <img src="/images/header.jpg" style={{height:'100%', width:'100%', objectFit:'cover',}} alt=""/>
             </Header>
-            <Page blogs={props.blogs}/>
+            <Blog blogs={props.blogs}/>
         </>
     );
 }
