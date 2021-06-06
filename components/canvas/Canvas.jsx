@@ -36,7 +36,8 @@ function Canvas(props) {
             0.1,
             100
         );
-        camera.position.z =5;
+        camera.position.x = 2;
+        camera.position.z =2;
         camera.position.y = 5;
 
         /*------------------------------
@@ -104,11 +105,14 @@ function Canvas(props) {
         ------------------------------*/
 
         function onWindowResize() {
-            camera.aspect = id.current.clientWidth / id.current.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize( id.current.clientWidth, id.current.clientHeight );
+            if(id.current !==null){
+                camera.aspect = id.current.clientWidth / id.current.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize( id.current.clientWidth, id.current.clientHeight );
+            }
         }
         window.addEventListener( 'resize', onWindowResize, false )
+
 
         /*------------------------------
         MouseMove
@@ -117,13 +121,13 @@ function Canvas(props) {
         function onMouseMove(e){
             const x = e.clientX
             const y = e.clientY
-
-            gsap.to(scene.rotation,{
-                y:gsap.utils.mapRange(0,id.current.clientWidth,.2,-.2, x),
-                x:gsap.utils.mapRange(0,id.current.clientHeight,.2,-.2, y)
-            })
+            if(id.current != null){
+                gsap.to(scene.rotation,{
+                    y:gsap.utils.mapRange(0,id.current.clientWidth,.2,-.2, x),
+                    x:gsap.utils.mapRange(0,id.current.clientHeight,.2,-.2, y)
+                })
+            }
         }
-        console.log(id.current)
         window.addEventListener('mousemove',onMouseMove)
         },[id,color])
 

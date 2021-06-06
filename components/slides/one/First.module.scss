@@ -36,12 +36,22 @@
         border-radius: 5px;
         border: 1px solid white;
         cursor: pointer;
+        transition:all 0.3s ease;
         &:first-child{
           background-color: white;
           color: black;
+          &:hover{
+            border-color: white;
+            background-color: unset;
+            color: white;
+          }
         }
         &:nth-child(2){
           margin-left: 25px;
+          &:hover{
+            background-color: white;
+            color: black;
+          }
         }
       }
     }

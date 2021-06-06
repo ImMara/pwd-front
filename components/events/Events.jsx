@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styles from './Events.module.scss';
 import Pagination from "../pagination/Pagination";
+import Link from "next/link";
 
 function Events({events}) {
     const [currentPage, setCurrentPage] = useState(1)
@@ -17,18 +18,19 @@ function Events({events}) {
             <div className={styles.lastEvents}>
                 {paginatedEvents.map(event => (
                     <>
-                        <div className={styles.hero} key={event._id}>
-                            <div className={styles.image}>
-                                <img src={`http://api.energydrink.eraertsalan.be/images/events/resized/${event.image}`} alt=""/>
+                        <Link href={"/events/"+event._id}>
+                            <div className={styles.hero} key={event._id} style={{cursor:'pointer'}}>
+                                <div className={styles.image}>
+                                    <img src={`http://api.energydrink.eraertsalan.be/images/events/resized/${event.image}`} alt=""/>
+                                </div>
+                                <div className={styles.content}>
+                                    <div className={styles.title}>{event.name}</div>
+                                    <div className={styles.date}>{event.date.toString().substring(0, 10)} - {event.endDate && event.endDate.toString().substring(0,10)}</div>
+                                    <div className={styles.address}>{event.address}</div>
+                                </div>
+                                <hr/>
                             </div>
-                            <div className={styles.content}>
-                                <div className={styles.title}>{event.name}</div>
-                                <div className={styles.date}>{event.date.toString().substring(0, 10)} - {event.endDate && event.endDate.toString().substring(0,10)}</div>
-                                <div className={styles.address}>{event.address}</div>
-                            </div>
-                            <hr/>
-                        </div>
-
+                        </Link>
                     </>
                 ))}
                 { itemsPerPage < events.length &&

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Third.module.scss';
+import Link from 'next/link';
 
 function Third(props) {
     return (
@@ -12,7 +13,7 @@ function Third(props) {
                         since we are also gamer we provide the best product for players .
                         And we are working hardly to participate to events , and sponsoring competitive teams around the world.</p>
                     <div className={styles.action}>
-                        <div className={styles.btn}>Product</div>
+                        <Link href="/events"><div className={styles.btn}>Events</div></Link>
                     </div>
                 </div>
             </div>

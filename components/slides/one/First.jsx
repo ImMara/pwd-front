@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './First.module.scss';
+import Link from 'next/link';
 
 function First(props) {
 
@@ -13,12 +14,16 @@ function First(props) {
                     <h1>ENERGY DRINK</h1>
                     <p>Get all your meetings minutes, tasks and decisions in one place. Share them with anyone instantly. Export them to all the tools you already use.</p>
                     <div className={styles.action}>
-                        <div className={styles.btn}>
-                            Produits
-                        </div>
-                        <div className={styles.btn}>
-                            Events
-                        </div>
+                        <Link href={"/blog"}>
+                            <div className={styles.btn}>
+                                Blog
+                            </div>
+                        </Link>
+                        <Link href={"/events"}>
+                            <div className={styles.btn}>
+                                Events
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <div className={styles.c2}>
