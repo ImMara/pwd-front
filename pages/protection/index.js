@@ -1,10 +1,10 @@
 import React from 'react';
-import Conditions from "../../components/conditions/Conditions";
 import Header from "../../components/layouts/header/Header";
+import Protection from "../../components/protection/Protection";
 
 function Index(props) {
     return (
-        <div style={{minHeight:"100vh"}}>
+        <div style={{minHeight:'100vh'}}>
             <Header height={"200px"} screen={true}>
                 <img src="/images/conditions-header.jpg" alt="header-cond"
                      style={{
@@ -13,8 +13,8 @@ function Index(props) {
                          objectFit:'cover'
                      }}/>
             </Header>
-            <div className="wrapper">
-                <Conditions />
+            <div className={'wrapper'}>
+                <Protection/>
             </div>
         </div>
     );

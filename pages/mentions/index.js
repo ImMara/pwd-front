@@ -1,6 +1,6 @@
 import React from 'react';
-import Conditions from "../../components/conditions/Conditions";
 import Header from "../../components/layouts/header/Header";
+import Mentions from "../../components/mentions/Mentions";
 
 function Index(props) {
     return (
@@ -13,8 +13,8 @@ function Index(props) {
                          objectFit:'cover'
                      }}/>
             </Header>
-            <div className="wrapper">
-                <Conditions />
+            <div className={'wrapper'}>
+                <Mentions/>
             </div>
         </div>
     );
