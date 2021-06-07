@@ -7,12 +7,35 @@ import Model from "./Model";
 function Canvas(props) {
 
     const id = useRef(null)
-    const [color,setColor] = useState(props.color)
+    const blue = useRef(null)
+    const red = useRef(null)
+    const green = useRef(null)
+
+    useEffect(()=>{
+        const triggerEvent = (el, type) => {
+            if ("createEvent" in document) {
+                var e = document.createEvent("HTMLEvents");
+                e.initEvent(type, false, true);
+                el.dispatchEvent(e);
+            } else {
+                var e = document.createEventObject();
+                e.eventType = type;
+                el.fireEvent("on" + e.eventType, e);
+            }
+        };
+        if(props.color ==="red"){
+            triggerEvent(red.current,"click")
+        }
+        if(props.color ==="blue"){
+            triggerEvent(blue.current,"click")
+        }
+        if(props.color ==="green"){
+            triggerEvent(green.current,"click")
+        }
+    })
 
 
     useEffect(() =>{
-
-        console.log(color)
 
         /*------------------------------
         Renderer
@@ -75,10 +98,52 @@ function Canvas(props) {
             name:'cans',
             file:'/models/cans.glb',
             scene: scene,
-            color1:color,
-            color2:color,
+            color1:"blue",
+            color2:"blue",
             placeOnLoad: true,
         })
+        const Cans2 = new Model({
+            name:'cans',
+            file:'/models/cans.glb',
+            scene: scene,
+            color1:"red",
+            color2:"red",
+            placeOnLoad: false,
+        })
+        const Cans3 = new Model({
+            name:'cans',
+            file:'/models/cans.glb',
+            scene: scene,
+            color1:"green",
+            color2:"green",
+            placeOnLoad: false,
+        })
+
+        /*------------------------------
+        Controllers
+        ------------------------------*/
+
+        red.current.addEventListener('click', ()=>{
+            console.log(1,"time")
+            if(Cans.isActive) Cans.remove()
+            if(Cans3.isActive) Cans3.remove()
+            Cans2.add()
+        })
+
+        blue.current.addEventListener('click',()=>{
+            console.log(2,'time 2')
+            if(Cans3.isActive) Cans3.remove()
+            if(Cans2.isActive) Cans2.remove()
+            Cans.add()
+        })
+
+        green.current.addEventListener('click',()=>{
+            console.log(3,"test time green")
+            if(Cans2.isActive) Cans2.remove()
+            if(Cans.isActive) Cans.remove()
+            Cans3.add()
+        })
+
 
         /*------------------------------
         Clock
@@ -93,13 +158,23 @@ function Canvas(props) {
         const animate = function () {
             requestAnimationFrame( animate );
             renderer.render( scene, camera );
-
-            if(Cans.isActive){
-               Cans.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
+            if(Cans.particlesMaterial !== undefined){
+                if(Cans.isActive){
+                    Cans.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
+                }
+            }
+            if(Cans2.particlesMaterial !== undefined){
+                if(Cans2.isActive){
+                    Cans2.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
+                }
+            }
+            if(Cans3.particlesMaterial !== undefined){
+                if(Cans3.isActive){
+                    Cans3.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime()
+                }
             }
         };
-        animate();
-
+        animate()
         /*------------------------------
         Resize
         ------------------------------*/
@@ -112,7 +187,6 @@ function Canvas(props) {
             }
         }
         window.addEventListener( 'resize', onWindowResize, false )
-
 
         /*------------------------------
         MouseMove
@@ -129,10 +203,20 @@ function Canvas(props) {
             }
         }
         window.addEventListener('mousemove',onMouseMove)
-        },[id,color])
+
+        return () => {
+
+        }
+
+        },[])
 
     return (
         <>
+            <div id="controllers">
+                <button className="button" hidden={true} ref={red}>Red</button>
+                <button className="button" hidden={true}  ref={blue}>Blue</button>
+                <button className="button" hidden={true}  ref={green}>Green</button>
+            </div>
             <div ref={id} style={{ height:'100%' }}/>
         </>
     );

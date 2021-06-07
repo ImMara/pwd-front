@@ -26,6 +26,9 @@ function Second(props) {
                        `}
         }
     }
+    const changeColor = (color) =>{
+        setColor(color)
+    }
 
 
     return (
@@ -35,9 +38,9 @@ function Second(props) {
             </div>
             <div className={styles.r}>
                 <div className={styles.action}>
-                    <div className={styles.btn} onClick={() => {setColor('red')}} style={{ color:"red"}}>Red</div>
-                    <div className={styles.btn} onClick={() => {setColor('blue')}} style={{ color:"blue"}}>Blue</div>
-                    <div className={styles.btn} onClick={() => setColor('green')} style={{ color:"green"}}>Green</div>
+                    <div className={styles.btn} onClick={() => changeColor('red')}>Red</div>
+                    <div className={styles.btn} onClick={() => changeColor('blue')}>Blue</div>
+                    <div className={styles.btn} onClick={() => changeColor('green')}>Green</div>
                 </div>
                 <div className={styles.content} dangerouslySetInnerHTML={colorGetter()}/>
             </div>

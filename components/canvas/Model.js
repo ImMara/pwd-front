@@ -135,41 +135,44 @@ class Model {
         })
     }
     add(){
-        this.scene.add(this.particles)
-
-        gsap.to(this.particlesMaterial.uniforms.uScale,{
-            value:1,
-            duration:.8,
-            delay:.3,
-            ease:"power3.out"
-        })
-        if(!this.isActive){
-            gsap.fromTo(this.particles.rotation,{
-                y : Math.PI
-            },{
-                y: 0,
-                duration: .8,
-                ease:'power3.out',
+        if(this.particlesMaterial!== undefined){
+            this.scene.add(this.particles)
+            gsap.to(this.particlesMaterial.uniforms.uScale,{
+                value:1,
+                duration:.8,
+                delay:.3,
+                ease:"power3.out"
             })
+            if(!this.isActive){
+                gsap.fromTo(this.particles.rotation,{
+                    y : Math.PI
+                },{
+                    y: 0,
+                    duration: .8,
+                    ease:'power3.out',
+                })
+            }
+            this.isActive = true
         }
-        this.isActive = true
     }
     remove(){
-        gsap.to(this.particlesMaterial.uniforms.uScale,{
-            value:0,
-            duration:.8,
-            ease:"power3.out",
-            onComplete:()=>{
-                this.scene.remove(this.particles)
-                this.isActive = false
-            }
-        })
+        if(this.particlesMaterial !== undefined){
+            gsap.to(this.particlesMaterial.uniforms.uScale,{
+                value:0,
+                duration:.8,
+                ease:"power3.out",
+                onComplete:()=>{
+                    this.scene.remove(this.particles)
+                    this.isActive = false
+                }
+            })
 
-        gsap.to(this.particles.rotation,{
-            y:Math.PI,
-            duration:.8,
-            ease:'power3.out'
-        })
+            gsap.to(this.particles.rotation,{
+                y:Math.PI,
+                duration:.8,
+                ease:'power3.out'
+            })
+        }
     }
 }
 export default Model;
