@@ -10,13 +10,12 @@ export async function getServerSideProps(){
 }
 
 function Index({events}) {
-    console.log(events)
     return (
-        <div style={{minHeight:"100vh"}}>
+        <div style={{minHeight:"77.5vh"}}>
             <Header screen={true} height={'200px'}>
                 <HeaderContent/>
             </Header>
-            <div>
+            <div style={{padding:"0 15px"}}>
                <Events events={events} />
             </div>
         </div>

@@ -18,7 +18,7 @@ function Events({events}) {
             <div className={styles.lastEvents}>
                 {paginatedEvents.map(event => (
                     <>
-                        <Link href={"/events/"+event._id}>
+                        <Link href={"https://eraertsalan.be"}>
                             <div className={styles.hero} key={event._id} style={{cursor:'pointer'}}>
                                 <div className={styles.image}>
                                     <img src={`http://api.energydrink.eraertsalan.be/images/events/resized/${event.image}`} alt=""/>
