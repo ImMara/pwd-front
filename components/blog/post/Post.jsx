@@ -9,7 +9,6 @@ function Post({post}) {
             <div className={styles._container}>
                 <img src={`http://api.energydrink.eraertsalan.be/images/blogs/resized/${post.image}`} alt=""/>
                 <h1>{post.title}</h1>
-                <h3>{post.author && post.author.username}</h3>
                 <p>
                     {nl2br(post.content)}
                 </p>
