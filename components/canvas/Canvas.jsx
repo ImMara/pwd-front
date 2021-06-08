@@ -124,21 +124,21 @@ function Canvas(props) {
         ------------------------------*/
 
         red.current.addEventListener('click', ()=>{
-            console.log(1,"time")
+            // console.log(1,"time")
             if(Cans.isActive) Cans.remove()
             if(Cans3.isActive) Cans3.remove()
             Cans2.add()
         })
 
         blue.current.addEventListener('click',()=>{
-            console.log(2,'time 2')
+            // console.log(2,'time 2')
             if(Cans3.isActive) Cans3.remove()
             if(Cans2.isActive) Cans2.remove()
             Cans.add()
         })
 
         green.current.addEventListener('click',()=>{
-            console.log(3,"test time green")
+            // console.log(3,"test time green")
             if(Cans2.isActive) Cans2.remove()
             if(Cans.isActive) Cans.remove()
             Cans3.add()
@@ -207,7 +207,7 @@ function Canvas(props) {
         window.addEventListener('mousemove',onMouseMove)
 
         return () => {
-
+            window.removeEventListener('mousemove',onMouseMove)
         }
 
         },[])

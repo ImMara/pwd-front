@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Image from 'next/image';
 import styles from './First.module.scss';
 import Link from 'next/link';
@@ -10,22 +10,29 @@ function First(props) {
     const img = useRef()
     const img2 = useRef()
     const round = useRef()
+    const slide = useRef()
 
-    const mousePosition = (event) =>{
-        let mouseX = event.clientX;
-        let mouseY = event.clientY;
+    useEffect(()=>{
 
-        console.log(img.current)
-        img.current.style.top = 42+(mouseY * 0.002)+"%"
-        img.current.style.left = 53+(mouseX * 0.002)+"%"
+        const mousePosition = (event) =>{
+            let mouseX = event.clientX;
+            let mouseY = event.clientY;
+            console.log(mouseY)
+            // console.log(img.current)
+            img.current.style.top = 42+(mouseY * 0.002)+"%"
+            img.current.style.left = 53+(mouseX * 0.002)+"%"
 
-        img2.current.style.top = 80-(mouseY * 0.0035)+"%"
-        img2.current.style.left = 50-(mouseX * 0.0035)+"%"
+            img2.current.style.top = 80-(mouseY * 0.0035)+"%"
+            img2.current.style.left = 50-(mouseX * 0.0035)+"%"
 
-    }
+        }
+
+        slide.current.addEventListener('mousemove' ,(event) => mousePosition(event))
+    },[])
+
 
     return (
-        <div className={styles.container} onMouseMove={mousePosition}>
+        <div className={styles.container} ref={slide}>
             <div className={"wrapper "+styles.content}>
                 <div className={styles.c}>
                     <h1>ENERGY DRINK</h1>
