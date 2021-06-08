@@ -4,21 +4,88 @@ import Pagination from "../pagination/Pagination";
 import Link from "next/link";
 
 function Events({events}) {
+
+    const [research, setResearch] = useState("");
+    const [researchCat, setResearchCat] = useState("");
+
+    const cleanWords = (word) => {
+        word.toLowerCase()
+        word = word.replace(/[\340-\346]/g, "a")
+        word = word.replace(/[\350-\353]/g, "e")
+        word = word.replace(/[\354-\357]/g, "i")
+        word = word.replace(/[\362-\370]/g, "o")
+        word = word.replace(/[\371-\374]/g, "u")
+        word = word.replace(/[\361]/g, "n")
+        word = word.replace(/[\347]/g, "c")
+        word = word.replace(/\,|\'|\-/g, " ")
+        word = word.replace(/[\s]{2,}/g, " ")
+        return word.trim()
+    }
+
+    const handleChangeResearch = (event) => {
+        const target = event.target
+        const value = target.value.toLowerCase()
+        const name = target.name
+        const cleaned = cleanWords(value)
+
+        setResearchCat(name)
+        setResearch(cleaned)
+    }
+
+    const filters = (event) => {
+        const wordLength = 2;
+        switch (researchCat) {
+            case 'name':
+                if (research === "") {
+                    return events
+                }
+                if (research.length > wordLength) {
+                    return events.filter(event => event.name.toLowerCase().includes(research))
+                }
+                return events;
+            case 'address' :
+                return events.filter(event => event.address.toLowerCase().includes(research))
+            case 'date':
+                console.log(research)
+                events.map(event => {
+                    console.log(event.date.toString().substring(0, 5).replace(/\,|\'|\-/g,' '))
+                } )
+                return events.filter( event => event.date.toString().substring(0, 10).replace(/\,|\'|\-/g,' ').includes(research) )
+            default:
+                return events
+        }
+    }
+
+
     const [currentPage, setCurrentPage] = useState(1)
     const itemsPerPage = 3
 
     const handlePageChange = (page) => {
         setCurrentPage(page)
     }
-    const paginatedEvents = Pagination.getData(events, currentPage, itemsPerPage)
+    const paginatedEvents = Pagination.getData(filters(), currentPage, itemsPerPage)
 
     return (
         <div className={"wrapper"}>
             <h2 className={styles.top}>Trouver des évènement</h2>
+            <div>
+                <label htmlFor="name">
+                    Rechercher par nom :
+                    <input type="text" name={"name"} onChange={handleChangeResearch}/>
+                </label>
+                <label htmlFor="">
+                    Rechercher par region :
+                    <input  type={"text"} name="address" id="" onChange={handleChangeResearch}/>
+                </label>
+                <label htmlFor="">
+                    Rechercher par date :
+                    <input type="date" name={"date"} onChange={handleChangeResearch}/>
+                </label>
+            </div>
             <div className={styles.last_events}>
                 {paginatedEvents.map((event,index) => (
                     <>
-                        <a href={event.link} target="_blank" >
+                        <a href={event.link}  target="_blank" >
                             <div className={styles.hero} key={event._id} style={{cursor:'pointer'}}>
                                 <div className={styles.image}>
                                     <img src={`http://api.energydrink.eraertsalan.be/images/events/resized/${event.image}`} alt=""/>
@@ -33,11 +100,11 @@ function Events({events}) {
                         </a>
                     </>
                 ))}
-                { itemsPerPage < events.length &&
+                { itemsPerPage < filters().length &&
                     <Pagination
                         currentPage={currentPage}
                         itemsPerPage={itemsPerPage}
-                        length={events.length}
+                        length={filters().length}
                         onPageChanged={handlePageChange}
                     />
                 }
