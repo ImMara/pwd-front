@@ -67,18 +67,18 @@ function Events({events}) {
 
     return (
         <div className={"wrapper"}>
-            <h2 className={styles.top}>Trouver des évènement</h2>
-            <div>
+            <h2 className={styles.top}>Trouver des évènements</h2>
+            <div className={styles.form}>
                 <label htmlFor="name">
-                    Rechercher par nom :
+                    Par nom :
                     <input type="text" name={"name"} onChange={handleChangeResearch}/>
                 </label>
                 <label htmlFor="">
-                    Rechercher par region :
+                    Par adresse :
                     <input  type={"text"} name="address" id="" onChange={handleChangeResearch}/>
                 </label>
                 <label htmlFor="">
-                    Rechercher par date :
+                    Par date :
                     <input type="date" name={"date"} onChange={handleChangeResearch}/>
                 </label>
             </div>
