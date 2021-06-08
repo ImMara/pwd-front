@@ -57,6 +57,28 @@
       border: 1px solid black;
       cursor: pointer;
       margin-left: 5px;
+      transition: background-color 0.5s ease;
+      &:first-child {
+        &:hover {
+          border-color: crimson;
+          background-color: crimson;
+          color: white;
+        }
+      }
+        &:nth-child(2){
+          &:hover{
+            border-color: royalblue;
+            background-color: royalblue;
+            color: white;
+          }
+        }
+        &:last-child{
+          &:hover{
+            border-color: limegreen;
+            background-color: limegreen;
+            color: white;
+          }
+        }
       @media( min-width: 991px){
         width: 150px;
       }

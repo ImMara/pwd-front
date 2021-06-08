@@ -26,7 +26,9 @@ function Blog({blogs}) {
                     />
                 }
                 {paginatedBlog.map(b => (
-                    <Cards blogs={b} key={b.id}/>
+                    <div key={b._id}>
+                        <Cards blogs={b} key={blogs._id}/>
+                    </div>
                 ))}
                 { itemsPerPage < blogs.length &&
                 <Pagination

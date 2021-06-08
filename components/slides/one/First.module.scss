@@ -30,22 +30,21 @@
       display: flex;
       width: 100%;
       margin-top: 35px;
-      .btn{
-        font-weight: 600;
-        padding: 15px 50px;
+      a{
+        display: block;
         border-radius: 5px;
-        border: 1px solid white;
-        cursor: pointer;
-        transition:all 0.3s ease;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.5s ease;
         &:first-child{
-          background-color: white;
-          color: black;
-          &:hover{
-            border-color: white;
-            background-color: unset;
-            color: white;
-          }
+        background-color: white;
+        color: black;
+        &:hover{
+          border-color: white;
+          background-color: unset;
+          color: white;
         }
+      }
         &:nth-child(2){
           margin-left: 25px;
           &:hover{
@@ -53,7 +52,16 @@
             color: black;
           }
         }
+        .btn{
+          font-weight: 600;
+          padding: 15px 50px;
+          border-radius: 5px;
+          border: 1px solid white;
+          cursor: pointer;
+          transition:all 0.5s ease;
+        }
       }
+
     }
   }
   .c2{

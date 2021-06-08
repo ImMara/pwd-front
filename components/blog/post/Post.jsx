@@ -3,7 +3,7 @@ import styles from './Post.module.scss';
 import nl2br from "react-nl2br";
 
 function Post({post}) {
-    console.log(post)
+    // console.log(post)
     return (
         <div className={"wrapper "}>
             <div className={styles._container}>
