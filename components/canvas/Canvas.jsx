@@ -32,7 +32,7 @@ function Canvas(props) {
         if(props.color ==="green"){
             triggerEvent(green.current,"click")
         }
-    })
+    },[props.color])
 
 
     useEffect(() =>{
