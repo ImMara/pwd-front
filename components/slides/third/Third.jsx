@@ -13,7 +13,7 @@ function Third(props) {
                         since we are also gamer we provide the best product for players .
                         And we are working hardly to participate to events , and sponsoring competitive teams around the world.</p>
                     <div className={styles.action}>
-                        <Link href="/events"><div className={styles.btn}>Events</div></Link>
+                        <a href="/events"><div className={styles.btn}>Events</div></a>
                     </div>
                 </div>
             </div>

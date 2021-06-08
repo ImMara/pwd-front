@@ -37,16 +37,16 @@ function First(props) {
                     <h1>ENERGY DRINK</h1>
                     <p>Get all your meetings minutes, tasks and decisions in one place. Share them with anyone instantly. Export them to all the tools you already use.</p>
                     <div className={styles.action}>
-                        <Link href={"/blog"}>
+                        <a href={"/blog"}>
                             <div className={styles.btn}>
                                 Blog
                             </div>
-                        </Link>
-                        <Link href={"/events"}>
+                        </a>
+                        <a href={"/events"}>
                             <div className={styles.btn}>
                                 Events
                             </div>
-                        </Link>
+                        </a>
                     </div>
                 </div>
                 <div className={styles.c2}>
