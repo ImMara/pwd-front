@@ -8,7 +8,7 @@ function First(props) {
     const { children } = props;
 
     return (
-        <div className={styles.container} ref={slide}>
+        <div className={styles.container}>
             <div className={"wrapper "+styles.content}>
                 <div className={styles.c}>
                     <h1>ENERGY DRINK</h1>
@@ -27,9 +27,9 @@ function First(props) {
                     </div>
                 </div>
                 <div className={styles.c2}>
-                    <div className={styles.round} ref={round}>
-                        <img ref={img} src="/images/svg/Group.svg" alt="energy-can"/>
-                        <img ref={img2} src="/images/svg/plan.svg" alt="gaming-setup"/>
+                    <div className={styles.round}>
+                        <img  src="/images/svg/Group.svg" alt="energy-can"/>
+                        <img  src="/images/svg/plan.svg" alt="gaming-setup"/>
                     </div>
                 </div>
             </div>
