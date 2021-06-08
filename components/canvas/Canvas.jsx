@@ -59,9 +59,9 @@ function Canvas(props) {
             0.1,
             100
         );
-        camera.position.x = 2;
-        camera.position.z =2;
-        camera.position.y = 5;
+        camera.position.x = 0;
+        camera.position.z =3;
+        camera.position.y = 3;
 
         /*------------------------------
         Mesh
@@ -98,15 +98,15 @@ function Canvas(props) {
             name:'cans',
             file:'/models/cans.glb',
             scene: scene,
-            color1:"blue",
-            color2:"blue",
+            color1:"mediumblue",
+            color2:"royalblue",
             placeOnLoad: true,
         })
         const Cans2 = new Model({
             name:'cans',
             file:'/models/cans.glb',
             scene: scene,
-            color1:"red",
+            color1:"crimson",
             color2:"red",
             placeOnLoad: false,
         })
@@ -114,7 +114,7 @@ function Canvas(props) {
             name:'cans',
             file:'/models/cans.glb',
             scene: scene,
-            color1:"green",
+            color1:"limegreen",
             color2:"green",
             placeOnLoad: false,
         })

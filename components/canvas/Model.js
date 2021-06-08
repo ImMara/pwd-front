@@ -83,7 +83,7 @@ class Model {
             ------------------------------*/
 
             const sampler = new MeshSurfaceSampler(this.mesh).build()
-            let numParticles = 50000
+            let numParticles = 70000
             window.addEventListener("resize", () => {
                 console.log(window.innerWidth)
                 if (window.innerWidth < 769) {
