@@ -11,12 +11,9 @@ function First(props) {
     const img2 = useRef()
     const round = useRef()
 
-    const [mouseX,setMouseX] = useState();
-    const [mouseY,setMouseY] = useState();
-
     const mousePosition = (event) =>{
-        setMouseX(event.clientX)
-        setMouseY(event.clientY)
+        let mouseX = event.clientX;
+        let mouseY = event.clientY;
 
         console.log(img.current)
         img.current.style.top = 42+(mouseY * 0.002)+"%"
