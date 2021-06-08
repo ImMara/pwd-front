@@ -15,10 +15,10 @@ function Events({events}) {
     return (
         <div className={"wrapper"}>
             <h2 className={styles.top}>Trouver des évènement</h2>
-            <div className={styles.lastEvents}>
+            <div className={styles.last_events}>
                 {paginatedEvents.map((event,index) => (
                     <>
-                        <Link href={event.link}>
+                        <a href={event.link} target="_blank" >
                             <div className={styles.hero} key={event._id} style={{cursor:'pointer'}}>
                                 <div className={styles.image}>
                                     <img src={`http://api.energydrink.eraertsalan.be/images/events/resized/${event.image}`} alt=""/>
@@ -30,7 +30,7 @@ function Events({events}) {
                                 </div>
                                 { index === itemsPerPage - 1 ? undefined : <hr/> }
                             </div>
-                        </Link>
+                        </a>
                     </>
                 ))}
                 { itemsPerPage < events.length &&
