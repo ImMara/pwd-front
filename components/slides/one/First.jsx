@@ -17,8 +17,7 @@ function First(props) {
         const mousePosition = (event) =>{
             let mouseX = event.clientX;
             let mouseY = event.clientY;
-            console.log(mouseY)
-            // console.log(img.current)
+
             img.current.style.top = 42+(mouseY * 0.002)+"%"
             img.current.style.left = 53+(mouseX * 0.002)+"%"
 

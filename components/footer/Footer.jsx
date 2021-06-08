@@ -9,9 +9,9 @@ function Footer(props) {
                 <div className={styles.f}>
                     <div className={styles._content}>
                         <div className={styles.block}>
-                            <Link href="/">Home</Link>
-                            <Link href="/blog">Blog</Link>
-                            <Link href="/events">Events</Link>
+                            <a href="/">Home</a>
+                            <a href="/blog">Blog</a>
+                            <a href="/events">Events</a>
                         </div>
                     </div>
                     <div className={styles._content}>
@@ -21,9 +21,9 @@ function Footer(props) {
                     </div>
                     <div className={styles._content}>
                         <div className={styles.block}>
-                            <Link href="/conditions">Conditions Générales</Link>
-                            <Link href="/mentions">Mentions lègales</Link>
-                            <Link href="/protection">Protection de la marque</Link>
+                            <a href="/conditions">Conditions Générales</a>
+                            <a href="/mentions">Mentions lègales</a>
+                            <a href="/protection">Protection de la marque</a>
                         </div>
                     </div>
                     <div className={styles.copy}>

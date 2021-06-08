@@ -6,10 +6,10 @@ import Model from "./Model";
 
 function Canvas(props) {
 
-    const id = useRef(null)
-    const blue = useRef(null)
-    const red = useRef(null)
-    const green = useRef(null)
+    const id = useRef()
+    const blue = useRef()
+    const red = useRef()
+    const green = useRef()
 
     useEffect(()=>{
         const triggerEvent = (el, type) => {
@@ -208,6 +208,9 @@ function Canvas(props) {
         window.addEventListener('mousemove',onMouseMove)
 
         return () => {
+            if(red.current !== null ) red.current.removeEventListener('click',()=>{})
+            if(green.current !== null ) green.current.removeEventListener('click',()=>{})
+            if(blue.current !== null ) blue.current.removeEventListener('click',()=>{})
             window.removeEventListener('resize',onWindowResize)
             window.removeEventListener('mousemove',onMouseMove)
         }

@@ -6,10 +6,10 @@ function Navbar(props) {
     return (
         <nav className={styles.nav}>
             <ul className={"wrapper"}>
-                <li><Link href="/">ENERGY DRINK</Link></li>
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/blog">Blog</Link></li>
-                <li><Link href="/events">Events</Link></li>
+                <li><a href="/">ENERGY DRINK</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/events">Events</a></li>
             </ul>
         </nav>
     );
