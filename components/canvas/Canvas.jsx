@@ -59,7 +59,7 @@ function Canvas(props) {
             0.1,
             100
         );
-        camera.position.x = 0;
+        camera.position.x = 5;
         camera.position.z =3;
         camera.position.y = 3;
 
@@ -180,6 +180,8 @@ function Canvas(props) {
         ------------------------------*/
 
         function onWindowResize() {
+           console.log(window.innerWidth)
+
             if(id.current !==null){
                 camera.aspect = id.current.clientWidth / id.current.clientHeight;
                 camera.updateProjectionMatrix();
