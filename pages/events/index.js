@@ -12,7 +12,7 @@ export async function getServerSideProps(){
 function Index({events}) {
     return (
         <div style={{minHeight:"77.5vh"}}>
-            <Header screen={true} height={'200px'}>
+            <Header screen={true} height={'400px'}>
                 <HeaderContent/>
             </Header>
             <div style={{padding:"0 15px"}}>

@@ -16,7 +16,7 @@ function Events({events}) {
         <div className={"wrapper"}>
             <h2 className={styles.top}>Trouver des évènement</h2>
             <div className={styles.lastEvents}>
-                {paginatedEvents.map(event => (
+                {paginatedEvents.map((event,index) => (
                     <>
                         <Link href={"https://eraertsalan.be"}>
                             <div className={styles.hero} key={event._id} style={{cursor:'pointer'}}>
@@ -28,7 +28,7 @@ function Events({events}) {
                                     <div className={styles.date}>{event.date.toString().substring(0, 10)} - {event.endDate && event.endDate.toString().substring(0,10)}</div>
                                     <div className={styles.address}>{event.address}</div>
                                 </div>
-                                <hr/>
+                                { index === itemsPerPage - 1 ? undefined : <hr/> }
                             </div>
                         </Link>
                     </>

@@ -5,7 +5,7 @@ import Mentions from "../../components/mentions/Mentions";
 function Index(props) {
     return (
         <div style={{minHeight:"100vh"}}>
-            <Header height={"200px"} screen={true}>
+            <Header height={"400px"} screen={true}>
                 <img src="/images/conditions-header.jpg" alt="header-cond"
                      style={{
                          width:"100%",

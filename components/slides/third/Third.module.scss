@@ -35,6 +35,7 @@
       h2{
         font-size: 30px;
         font-weight: bold;
+        line-height: 80%;
         @media (min-width: 393px){
           font-size: 50px;
         }
@@ -56,7 +57,7 @@
       }
       .action{
         @media (min-width: 990px){
-          margin-top: 50px;
+          margin-top: 60px;
         }
         .btn{
           font-weight: 600;
