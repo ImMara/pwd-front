@@ -12,7 +12,6 @@ function Cards({blogs}) {
                     </div>
                     <div className={styles.card_content}>
                         <h4>{blogs.title}</h4>
-                        <p>{String(blogs.content)}</p>
                     </div>
                 </div>
             </a>
