@@ -5,24 +5,10 @@ import Header from "../../components/layouts/header/Header";
 import Image from 'next/image'
 import Loader from "../../components/loader/loader";
 
-export async function getStaticProps(){
-    const blogs = await getBlogs()
-    return { props : { blogs }}
-}
+
 
 function Index(props) {
-
-    useEffect( () =>{
-
-        setTimeout(()=>{
-            setBlog(props.blogs)
-            setLoader(true)
-        },500)
-    },[])
-
-    const [loader,setLoader] = useState(false)
-    const [blog,setBlog] = useState()
-
+    const {blogs} = props;
     return (
         <>
             <Header screen={true} color={"black"} height={"400px"}>
@@ -37,10 +23,13 @@ function Index(props) {
                 />
                 <img src="/images/header.jpg" style={{height:'100%', width:'100%', objectFit:'cover',}} alt=""/>
             </Header>
-            {!loader ? (<Loader/>) : (<Blog blogs={blog}/>)}
+            <Blog blogs={blogs}/>
         </>
     );
 }
 
-
+Index.getInitialProps = async () => {
+    const blogs = await getBlogs()
+    return {blogs}
+}
 export default Index;

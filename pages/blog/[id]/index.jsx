@@ -1,18 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useRouter} from 'next/router';
 import Header from "../../../components/layouts/header/Header";
 import {getPost} from "../../../actions";
 import Post from "../../../components/blog/post/Post";
 
-export async function getServerSideProps({query}) {
-    const post = await getPost(query.id)
-    return { props : {post} }
-}
-
-function Index({post}) {
+function Index(props) {
 
     const router = useRouter()
     const {id} = router.query
+    const {post} = props
 
     return (
         <>
@@ -31,5 +27,9 @@ function Index({post}) {
     );
 }
 
+Index.getInitialProps = async ({query}) =>{
+    const post = await getPost(query.id);
+    return {post}
+}
 
 export default Index;
