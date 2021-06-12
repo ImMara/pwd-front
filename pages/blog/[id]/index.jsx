@@ -4,7 +4,7 @@ import Header from "../../../components/layouts/header/Header";
 import {getPost} from "../../../actions";
 import Post from "../../../components/blog/post/Post";
 
-export async function getStaticProps({query}) {
+export async function getServerSideProps({query}) {
     const post = await getPost(query.id)
     return { props : {post} }
 }

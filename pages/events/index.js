@@ -5,7 +5,7 @@ import HeaderContent from "../../components/events/HeaderContent";
 import Events from "../../components/events/Events";
 import Loader from "../../components/loader/loader";
 
-export async function getInitialProps(){
+export async function getStaticProps(){
     const events = await getEvents();
     return { props : { events }}
 }
