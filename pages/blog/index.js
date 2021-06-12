@@ -1,14 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Blog from "../../components/blog/Blog";
 import {getBlogs} from "../../actions";
 import Header from "../../components/layouts/header/Header";
+import Image from 'next/image'
+import Loader from "../../components/loader/loader";
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
     const blogs = await getBlogs()
     return { props : { blogs }}
 }
 
 function Index(props) {
+
+    useEffect( () =>{
+
+        setTimeout(()=>{
+            setBlog(props.blogs)
+            setLoader(true)
+        },500)
+    },[])
+
+    const [loader,setLoader] = useState(false)
+    const [blog,setBlog] = useState()
+
     return (
         <>
             <Header screen={true} color={"black"} height={"400px"}>
@@ -23,7 +37,7 @@ function Index(props) {
                 />
                 <img src="/images/header.jpg" style={{height:'100%', width:'100%', objectFit:'cover',}} alt=""/>
             </Header>
-            <Blog blogs={props.blogs}/>
+            {!loader ? (<Loader/>) : (<Blog blogs={blog}/>)}
         </>
     );
 }
