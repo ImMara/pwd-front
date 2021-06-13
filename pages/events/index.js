@@ -27,13 +27,9 @@ function Index({events}) {
             <Header screen={true} height={'400px'}>
                 <HeaderContent/>
             </Header>
-            { !loader ? (<Loader/>) :
-                (
-                <div style={{padding:"0 15px"}}>
-                    <Events events={event} />
-                </div>
-                )
-            }
+            <div style={{padding:"0 15px"}}>
+                <Events events={event} />
+            </div>
         </div>
     );
 }

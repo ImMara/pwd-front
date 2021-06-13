@@ -8,7 +8,9 @@ import Loader from "../../components/loader/loader";
 
 
 function Index(props) {
+
     const {blogs} = props;
+
     return (
         <>
             <Header screen={true} color={"black"} height={"400px"}>
@@ -23,7 +25,7 @@ function Index(props) {
                 />
                 <img src="/images/header.jpg" style={{height:'100%', width:'100%', objectFit:'cover',}} alt=""/>
             </Header>
-            <Blog blogs={blogs}/>
+            <Blog blogs={blogs}/> 
         </>
     );
 }
