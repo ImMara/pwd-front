@@ -12,16 +12,6 @@ export async function getStaticProps(){
 
 function Index({events}) {
 
-    const [event,setEvent] = useState();
-    const [loader,setLoader] = useState(false);
-
-    useEffect( () =>{
-        setTimeout(()=>{
-            setEvent(events)
-            setLoader(true)
-        },500)
-    },[])
-
     return (
         <div style={{minHeight:"77.5vh"}}>
             <Header screen={true} height={'400px'}>
