@@ -18,7 +18,7 @@ function Index({events}) {
                 <HeaderContent/>
             </Header>
             <div style={{padding:"0 15px"}}>
-                <Events events={event} />
+                <Events events={events} />
             </div>
         </div>
     );
