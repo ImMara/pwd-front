@@ -2,10 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Blog from "../../components/blog/Blog";
 import {getBlogs} from "../../actions";
 import Header from "../../components/layouts/header/Header";
-import Image from 'next/image'
-import Loader from "../../components/loader/loader";
-
-
 
 function Index(props) {
 

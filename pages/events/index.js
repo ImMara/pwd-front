@@ -3,7 +3,6 @@ import { getEvents} from "../../actions";
 import Header from "../../components/layouts/header/Header";
 import HeaderContent from "../../components/events/HeaderContent";
 import Events from "../../components/events/Events";
-import Loader from "../../components/loader/loader";
 
 export async function getStaticProps(){
     const events = await getEvents();
