@@ -31,12 +31,12 @@ function Blog({blogs}) {
                     </div>
                 ))}
                 { itemsPerPage < blogs.length &&
-                <Pagination
-                    currentPage={currentPage}
-                    itemsPerPage={itemsPerPage}
-                    length={blogs.length}
-                    onPageChanged={handlePageChange}
-                />
+                    <Pagination
+                        currentPage={currentPage}
+                        itemsPerPage={itemsPerPage}
+                        length={blogs.length}
+                        onPageChanged={handlePageChange}
+                    />
                 }
             </div>
         </>

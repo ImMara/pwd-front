@@ -13,6 +13,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      @media(max-width: 540px){
+        width: 50%;
+      }
+      &:nth-child(2){
+        @media(max-width: 540px){
+          display: none;
+        }
+      }
       .block{
         display: flex;
         flex-direction: column;
