@@ -35,7 +35,9 @@ function First(props) {
             <div className={"wrapper "+styles.content}>
                 <div className={styles.c}>
                     <h1>ENERGY DRINK</h1>
-                    <p>Get all your meetings minutes, tasks and decisions in one place. Share them with anyone instantly. Export them to all the tools you already use.</p>
+                    <p>
+                        Energy Drink est une boisson appréciée dans le monde entier par les athlètes de haut niveau, les étudiants, ceux qui ont métier très exigeant et durant les longs trajets en voiture.
+                    </p>
                     <div className={styles.action}>
                         <a href={"/blog"}>
                             <div className={styles.btn}>

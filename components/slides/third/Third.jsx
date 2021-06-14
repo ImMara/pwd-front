@@ -9,9 +9,7 @@ function Third(props) {
                 <img src="/images/game.png" alt=""/>
                 <div className={styles.c}>
                     <h2>ACTIVE MEMBER OF ESPORT</h2>
-                    <p>Our company is an active actor of esport ,
-                        since we are also gamer we provide the best product for players .
-                        And we are working hardly to participate to events , and sponsoring competitive teams around the world.</p>
+                    <p>Du niveau 1 au boss final, avec une canette d EnergyDrink dans ton équipe, la victoire n’est jamais très loin.</p>
                     <div className={styles.action}>
                         <a href="/events"><div className={styles.btn}>Events</div></a>
                     </div>
