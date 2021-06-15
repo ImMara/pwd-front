@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://api.energydrink.eraertsalan.be/api'
+const BASE_URL = 'http://vps-447d73c6.vps.ovh.net/api'
 
 export const getBlogs = () => {
     return axios
