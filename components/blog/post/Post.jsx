@@ -7,7 +7,7 @@ function Post({post}) {
     return (
         <div className={"wrapper "}>
             <div className={styles._container}>
-                <img src={`http://api.energydrink.eraertsalan.be/images/blogs/resized/${post.image}`} alt=""/>
+                <img src={`http://vps-447d73c6.vps.ovh.net/images/blogs/resized/${post.image}`} alt=""/>
                 <h1>{post.title}</h1>
                 <p>
                     {nl2br(post.content)}

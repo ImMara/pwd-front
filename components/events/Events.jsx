@@ -88,7 +88,7 @@ function Events({events}) {
                         <a href={event.link}  target="_blank" >
                             <div className={styles.hero} key={event._id} style={{cursor:'pointer'}}>
                                 <div className={styles.image}>
-                                    <img src={`http://api.energydrink.eraertsalan.be/images/events/resized/${event.image}`} alt=""/>
+                                    <img src={`http://vps-447d73c6.vps.ovh.net/images/events/resized/${event.image}`} alt=""/>
                                 </div>
                                 <div className={styles.content}>
                                     <div className={styles.title}>{event.name}</div>
